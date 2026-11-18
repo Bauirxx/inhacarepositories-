@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <title>Ilustração: ilha tropical ao pôr do sol (imagem ilustrativa, não é uma fotografia da Inhaca)</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d2b2e"/>
+      <stop offset=".45" stop-color="#1b6b6b"/>
+      <stop offset=".8" stop-color="#e6b96a"/>
+      <stop offset="1" stop-color="#f3d9a4"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#20a6a0"/>
+      <stop offset="1" stop-color="#153e42"/>
+    </linearGradient>
+    <radialGradient id="sun" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#fff4d6"/>
+      <stop offset=".6" stop-color="#f3d9a4" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#e6b96a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1120" cy="470" r="190" fill="url(#sun)"/>
+  <circle cx="1120" cy="470" r="70" fill="#fff4d6" opacity=".9"/>
+  <rect y="540" width="1600" height="360" fill="url(#sea)"/>
+  <path d="M0 540 C 260 470 420 450 640 490 C 820 520 900 470 1040 500 C 1180 530 1300 520 1600 540 Z" fill="#153e42"/>
+  <path d="M420 540 C 520 505 640 498 760 512 C 880 526 960 520 1040 540 Z" fill="#e6b96a"/>
+  <path d="M60 545 C 200 520 320 515 420 540 Z" fill="#e6b96a" opacity=".85"/>
+  <g fill="#0d2b2e">
+    <path d="M610 505 q6 -70 -4 -130" stroke="#0d2b2e" stroke-width="7" fill="none"/>
+    <path d="M606 375 q-60 -10 -95 25 q40 -12 95 -25z M606 375 q60 -18 100 10 q-45 -5 -100 -10z M606 375 q-30 -50 -80 -60 q40 25 80 60z M606 375 q20 -55 70 -70 q-35 30 -70 70z"/>
+    <path d="M700 510 q2 -50 -6 -95" stroke="#0d2b2e" stroke-width="6" fill="none"/>
+    <path d="M694 415 q-45 -6 -72 18 q30 -8 72 -18z M694 415 q45 -12 76 8 q-35 -4 -76 -8z M694 415 q-22 -38 -60 -45 q30 20 60 45z M694 415 q15 -42 52 -52 q-26 22 -52 52z"/>
+  </g>
+  <g stroke="#f5f7f4" stroke-opacity=".35" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M100 640 q40 -10 80 0 t80 0"/>
+    <path d="M900 620 q40 -10 80 0 t80 0 t80 0"/>
+    <path d="M300 720 q40 -10 80 0 t80 0"/>
+    <path d="M1200 700 q40 -10 80 0 t80 0"/>
+    <path d="M700 790 q40 -10 80 0 t80 0 t80 0"/>
+  </g>
+  <path d="M1270 600 l70 0 l-12 14 l-48 0 z" fill="#0d2b2e"/>
+  <path d="M1302 600 l0 -62 l30 56 z" fill="#f5f7f4" opacity=".9"/>
+</svg>

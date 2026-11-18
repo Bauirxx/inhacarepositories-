@@ -1,0 +1,270 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ------------------------------------------------------------------
+   INHACA CONNECT — identidade visual
+   Verde oceano #153E42 · Turquesa #20A6A0 · Areia #E6B96A · Branco natural #F5F7F4
+   ------------------------------------------------------------------ */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-heading: var(--font-heading);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Paleta da marca (utilizável como bg-ocean, text-turquoise, border-sand…) */
+  --color-ocean: var(--brand-ocean);
+  --color-ocean-deep: var(--brand-ocean-deep);
+  --color-turquoise: var(--brand-turquoise);
+  --color-turquoise-light: var(--brand-turquoise-light);
+  --color-sand: var(--brand-sand);
+  --color-sand-light: var(--brand-sand-light);
+  --color-natural: var(--brand-natural);
+  --color-coral: var(--brand-coral);
+  --color-success: var(--brand-success);
+  --color-warning: var(--brand-warning);
+}
+
+:root {
+  --brand-ocean: #153e42;
+  --brand-ocean-deep: #0d2b2e;
+  --brand-turquoise: #20a6a0;
+  --brand-turquoise-light: #d6f1ef;
+  --brand-sand: #e6b96a;
+  --brand-sand-light: #fbf1dc;
+  --brand-natural: #f5f7f4;
+  --brand-coral: #e07a5f;
+  --brand-success: #2f9e6a;
+  --brand-warning: #d98b1f;
+
+  --background: #f5f7f4;
+  --foreground: #10292c;
+  --card: #ffffff;
+  --card-foreground: #10292c;
+  --popover: #ffffff;
+  --popover-foreground: #10292c;
+  --primary: #153e42;
+  --primary-foreground: #f5f7f4;
+  --secondary: #e4efec;
+  --secondary-foreground: #153e42;
+  --muted: #eaf0ed;
+  --muted-foreground: #5b7072;
+  --accent: #d6f1ef;
+  --accent-foreground: #0f4f4c;
+  --destructive: #c0392b;
+  --border: #d9e3df;
+  --input: #cfdcd7;
+  --ring: #20a6a0;
+  --chart-1: #20a6a0;
+  --chart-2: #153e42;
+  --chart-3: #e6b96a;
+  --chart-4: #7fcbc6;
+  --chart-5: #b58a3a;
+  --radius: 0.875rem;
+  --sidebar: #0f2f33;
+  --sidebar-foreground: #e4efec;
+  --sidebar-primary: #20a6a0;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #17474c;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #1d5257;
+  --sidebar-ring: #20a6a0;
+}
+
+.dark {
+  --background: #0b1f22;
+  --foreground: #e8f0ee;
+  --card: #10292c;
+  --card-foreground: #e8f0ee;
+  --popover: #10292c;
+  --popover-foreground: #e8f0ee;
+  --primary: #20a6a0;
+  --primary-foreground: #06201f;
+  --secondary: #17474c;
+  --secondary-foreground: #e8f0ee;
+  --muted: #153e42;
+  --muted-foreground: #9fb8b6;
+  --accent: #17474c;
+  --accent-foreground: #d6f1ef;
+  --destructive: #e4674f;
+  --border: #1f4d52;
+  --input: #1f4d52;
+  --ring: #20a6a0;
+  --sidebar: #08191b;
+  --sidebar-foreground: #e4efec;
+  --sidebar-primary: #20a6a0;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #153e42;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #1d5257;
+  --sidebar-ring: #20a6a0;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading tracking-tight;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+  /* Evita zoom automático no iOS ao focar inputs */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+  @media (min-width: 768px) {
+    input,
+    select,
+    textarea {
+      font-size: 0.95rem;
+    }
+  }
+}
+
+@layer utilities {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .pb-nav {
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+  }
+  .touch-target {
+    @apply min-h-11 min-w-11;
+  }
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .gradient-ocean {
+    background: linear-gradient(135deg, #0d2b2e 0%, #153e42 55%, #1b6b6b 100%);
+  }
+  .gradient-hero {
+    background: linear-gradient(
+      180deg,
+      rgba(13, 43, 46, 0.15) 0%,
+      rgba(13, 43, 46, 0.35) 45%,
+      rgba(13, 43, 46, 0.85) 100%
+    );
+  }
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* MapLibre: integração visual com o tema */
+.maplibregl-popup-content {
+  border-radius: 0.75rem;
+  padding: 0;
+  box-shadow: 0 10px 30px rgba(13, 43, 46, 0.2);
+}
+.maplibregl-ctrl-group {
+  border-radius: 0.75rem !important;
+  overflow: hidden;
+}
+.maplibregl-ctrl-group button {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+/* Animações discretas */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.4s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
