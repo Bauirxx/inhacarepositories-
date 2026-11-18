@@ -46,7 +46,7 @@ export default async function GuidePage({ params }: PageProps<"/descobrir/[slug]
           </h1>
         </div>
       </div>
-      <div className="container-page grid gap-10 py-8 lg:grid-cols-[1fr_300px]">
+      <div className="container-page grid grid-cols-1 gap-10 py-8 lg:grid-cols-[minmax(0,1fr)_300px]">
         <div className="max-w-3xl">
           {page.excerpt ? <p className="mb-6 text-lg text-muted-foreground">{page.excerpt}</p> : null}
           <Markdown source={page.content} />

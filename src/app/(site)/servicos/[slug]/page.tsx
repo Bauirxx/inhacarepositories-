@@ -128,7 +128,7 @@ export default async function BusinessPage({ params }: PageProps<"/servicos/[slu
           <p className="mt-4 rounded-xl bg-red-50 p-3 text-sm text-red-800">Motivo da rejeição: {business.rejection_reason}</p>
         ) : null}
 
-        <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
+        <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
           <div className="space-y-6">
             {business.description || business.short_description ? (
               <section className="rounded-2xl border bg-card p-4 shadow-sm sm:p-6">

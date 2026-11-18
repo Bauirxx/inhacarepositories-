@@ -73,7 +73,9 @@ npm run start       # servir o build
 npm run lint        # ESLint
 npm run typecheck   # tipos de rotas + TypeScript
 npm run test        # testes unitários (Vitest)
-npm run check       # typecheck + lint + testes
+npm run check       # typecheck + lint + testes + validação SQL/RLS
+npm run db:validate # migrations + seed + testes RLS num PostgreSQL em WASM (sem Docker)
+npm run test:responsive # scroll horizontal e capturas em várias larguras (servidor a correr)
 npm run icons       # regenerar ícones PWA e imagem Open Graph
 ```
 

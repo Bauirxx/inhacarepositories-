@@ -6,7 +6,7 @@ import type { Map as MapLibreMap, Marker } from "maplibre-gl";
 import { Crosshair, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { ISLAND_CENTER, MAP_STYLE_URL } from "./map-config";
+import { ISLAND_CENTER, loadMaplibre, MAP_STYLE_URL } from "./map-config";
 
 /**
  * Seletor de coordenadas: toque/clique no mapa ou arraste o marcador.
@@ -36,7 +36,7 @@ export function LocationPicker({
     let map: MapLibreMap | null = null;
     let cancelled = false;
     (async () => {
-      const maplibre = await import("maplibre-gl");
+      const maplibre = await loadMaplibre();
       if (cancelled || !containerRef.current) return;
       const hasCoords = latitude != null && longitude != null;
       map = new maplibre.Map({
@@ -96,7 +96,9 @@ export function LocationPicker({
   return (
     <div className="space-y-2">
       <div className="relative h-64 overflow-hidden rounded-xl border sm:h-80">
-        <div ref={containerRef} className="absolute inset-0" />
+        <div className="absolute inset-0">
+          <div ref={containerRef} className="size-full" />
+        </div>
         {!ready ? (
           <div className="absolute inset-0 flex items-center justify-center bg-muted text-sm text-muted-foreground">
             A carregar o mapa…

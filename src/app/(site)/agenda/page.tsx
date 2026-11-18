@@ -74,7 +74,7 @@ export default async function AgendaPage({ searchParams }: PageProps<"/agenda">)
         {view === "lista" ? (
           <Link
             href={`/agenda?${new URLSearchParams({ ...(category ? { categoria: category } : {}), ...(past ? {} : { passados: "1" }) })}`}
-            className="ml-auto text-sm font-medium text-turquoise hover:underline"
+            className="ml-auto inline-flex min-h-11 items-center text-sm font-medium text-turquoise hover:underline"
           >
             {past ? "Ver próximos eventos" : "Ver eventos passados"}
           </Link>

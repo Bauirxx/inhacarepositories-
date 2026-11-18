@@ -84,7 +84,7 @@ export default async function EventPage({ params }: PageProps<"/agenda/[slug]">)
           </Button>
         </div>
       </div>
-      <div className="container-page mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
+      <div className="container-page mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
         <div className="space-y-6">
           <div>
             <div className="flex flex-wrap items-center gap-2">

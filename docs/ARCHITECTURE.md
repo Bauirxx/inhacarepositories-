@@ -37,6 +37,10 @@ Supabase
 - **Mapa:** MapLibre carregado dinamicamente só nas páginas que o usam; marcadores em GeoJSON com clustering
   (desempenho em telemóveis); tiles vetoriais OpenFreeMap (gratuitos, dados OpenStreetMap, sem chave). As coordenadas
   são sempre fornecidas pelos prestadores e validadas pela administração — nenhuma coordenada é inventada.
+- **Worker do MapLibre:** o MapLibre 6 resolve o seu Web Worker relativamente ao próprio módulo, o que deixa de
+  funcionar depois do empacotamento. `scripts/copy-maplibre-worker.mjs` (executado em `predev`/`prebuild`) copia o
+  worker para `public/maplibre/` e `loadMaplibre()` chama `setWorkerUrl`. O contentor do mapa fica dentro de um
+  invólucro `absolute inset-0` porque o CSS do MapLibre força `position: relative` no próprio contentor.
 - **PostGIS:** coluna `location geography(point)` sincronizada por trigger, índice GiST e função `businesses_nearby`.
 - **Imagens:** comprimidas no browser (WebP, máx. 1600 px) antes do upload, servidas por `next/image` (AVIF/WebP).
 - **Conteúdo editorial em Markdown seguro:** um renderizador próprio que converte para elementos React (nunca

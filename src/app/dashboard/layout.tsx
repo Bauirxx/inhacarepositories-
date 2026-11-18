@@ -9,7 +9,7 @@ export default async function DashboardLayout({ children }: LayoutProps<"/dashbo
     <>
       <SiteHeader />
       <div className="container-page flex-1 py-4 pb-nav md:pb-10 lg:py-8">
-        <div className="grid gap-6 lg:grid-cols-[220px_minmax(0,1fr)]">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[220px_minmax(0,1fr)]">
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <DashboardNav />
           </aside>

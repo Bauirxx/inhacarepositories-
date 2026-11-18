@@ -14,7 +14,7 @@ import { DynamicIcon } from "@/components/shared/dynamic-icon";
 import { cn } from "@/lib/utils";
 import type { BusinessCategory } from "@/types";
 import type { MapBusiness } from "@/services/businesses";
-import { categoryColor, ISLAND_BOUNDS, ISLAND_CENTER, MAP_STYLE_URL } from "./map-config";
+import { categoryColor, ISLAND_BOUNDS, ISLAND_CENTER, loadMaplibre, MAP_STYLE_URL } from "./map-config";
 
 interface InteractiveMapProps {
   businesses: MapBusiness[];
@@ -61,9 +61,10 @@ export function InteractiveMap({ businesses, categories, initialCategory, initia
   useEffect(() => {
     let cancelled = false;
     let map: MapLibreMap | null = null;
+    let loadTimeout: ReturnType<typeof setTimeout> | undefined;
     (async () => {
       try {
-        const maplibre = await import("maplibre-gl");
+        const maplibre = await loadMaplibre();
         if (cancelled || !containerRef.current) return;
         map = new maplibre.Map({
           container: containerRef.current,
@@ -83,7 +84,13 @@ export function InteractiveMap({ businesses, categories, initialCategory, initia
           if (!map?.loaded()) console.warn("[map]", e.error?.message);
         });
 
+        // Sem rede ou sem WebGL o evento "load" nunca chega: mostramos uma mensagem.
+        loadTimeout = setTimeout(() => {
+          if (!cancelled && !map?.loaded()) setFailed(true);
+        }, 20_000);
+
         map.on("load", () => {
+          clearTimeout(loadTimeout);
           if (!map) return;
           map.addSource("businesses", {
             type: "geojson",
@@ -166,6 +173,7 @@ export function InteractiveMap({ businesses, categories, initialCategory, initia
     })();
     return () => {
       cancelled = true;
+      clearTimeout(loadTimeout);
       map?.remove();
       mapRef.current = null;
     };
@@ -218,7 +226,7 @@ export function InteractiveMap({ businesses, categories, initialCategory, initia
       async (pos) => {
         const map = mapRef.current;
         if (!map) return;
-        const maplibre = await import("maplibre-gl");
+        const maplibre = await loadMaplibre();
         const lngLat: [number, number] = [pos.coords.longitude, pos.coords.latitude];
         if (!userMarkerRef.current) {
           const el = document.createElement("div");
@@ -304,7 +312,9 @@ export function InteractiveMap({ businesses, categories, initialCategory, initia
 
       {/* Mapa */}
       <div className={cn("relative flex-1", mobileView === "list" && "hidden md:block")}>
-        <div ref={containerRef} className="absolute inset-0" aria-label="Mapa interativo da Ilha de Inhaca" role="region" />
+        <div className="absolute inset-0">
+          <div ref={containerRef} className="size-full" aria-label="Mapa interativo da Ilha de Inhaca" role="region" />
+        </div>
         {failed ? (
           <div className="absolute inset-0 flex items-center justify-center bg-muted p-6 text-center text-sm text-muted-foreground">
             Não foi possível carregar o mapa. Verifique a sua ligação à Internet.

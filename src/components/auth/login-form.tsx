@@ -63,7 +63,7 @@ export function LoginForm({ next }: { next?: string }) {
         </div>
       </FormField>
       <div className="flex justify-end">
-        <Link href="/recuperar" className="text-sm font-medium text-turquoise hover:underline">
+        <Link href="/recuperar" className="inline-flex min-h-11 items-center text-sm font-medium text-turquoise hover:underline">
           Esqueceu a palavra-passe?
         </Link>
       </div>

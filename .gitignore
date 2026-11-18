@@ -40,3 +40,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# capturas de testes de responsividade
+/responsive-screenshots
+
+# gerado por scripts/copy-maplibre-worker.mjs
+/public/maplibre

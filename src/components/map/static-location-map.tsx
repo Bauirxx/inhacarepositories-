@@ -2,7 +2,7 @@
 
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useEffect, useRef } from "react";
-import { MAP_STYLE_URL } from "./map-config";
+import { loadMaplibre, MAP_STYLE_URL } from "./map-config";
 
 /** Mini-mapa de leitura com um único marcador (páginas de detalhe). */
 export function StaticLocationMap({ latitude, longitude, label }: { latitude: number; longitude: number; label: string }) {
@@ -11,7 +11,7 @@ export function StaticLocationMap({ latitude, longitude, label }: { latitude: nu
     let map: import("maplibre-gl").Map | null = null;
     let cancelled = false;
     (async () => {
-      const maplibre = await import("maplibre-gl");
+      const maplibre = await loadMaplibre();
       if (cancelled || !ref.current) return;
       map = new maplibre.Map({
         container: ref.current,

@@ -39,7 +39,7 @@ export async function SiteHeader() {
             </>
           ) : (
             <>
-              <Button asChild variant="ghost" className="hidden sm:inline-flex">
+              <Button asChild variant="ghost" className="hidden sm:inline-flex lg:hidden xl:inline-flex">
                 <Link href="/entrar">Entrar</Link>
               </Button>
               <Button asChild variant="turquoise" size="sm" className="h-10">

@@ -11,6 +11,27 @@ Os testes unitários (`tests/`) cobrem: normalização de telefones e ligações
 redirecionamentos abertos e URLs perigosas, conversão de fuso horário da ilha, esquemas Zod (registo, negócios,
 publicações, eventos, produtos, mensagens, denúncias), regras RBAC e o renderizador Markdown (proteção XSS).
 
+## Base de dados e RLS
+
+```bash
+npm run db:validate   # aplica todas as migrations + seed num PostgreSQL real (PGlite/WASM) e testa ~87 regras RLS
+npm run test:rls      # mesmo tipo de testes contra um Supabase local (Docker) — ver variáveis no topo do script
+```
+
+`db:validate` não precisa de Docker: substitui os esquemas `auth`/`storage` e o PostGIS por stubs mínimos e
+verifica, como utilizadores diferentes, aprovação de negócios, contadores, privacidade das mensagens, bloqueios,
+grupos, storage, suspensões, denúncias, auditoria, rate limiting e pesquisa.
+
+## Responsividade automática
+
+```bash
+npm run build && npm start                      # noutro terminal
+BASE_URL=http://localhost:3000 npm run test:responsive
+```
+
+Abre as páginas públicas em 360, 390, 768, 1024, 1440 px e em horizontal (844×390), falha se houver scroll
+horizontal e guarda capturas em `responsive-screenshots/`.
+
 ## Testes de permissões (manual, com dois utilizadores)
 
 - [ ] Visitante sem sessão: `/dashboard`, `/admin`, `/comunidade/chat` redirecionam para `/entrar`.

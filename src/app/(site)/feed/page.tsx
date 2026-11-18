@@ -39,7 +39,7 @@ export default async function FeedPage({ searchParams }: PageProps<"/feed">) {
   return (
     <div className="container-page py-6 sm:py-10">
       <PageHeader title="Feed da ilha" description="O que está a acontecer na Ilha de Inhaca, partilhado pela comunidade." />
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="mx-auto w-full max-w-2xl lg:mx-0">
           <div className="mb-4">
             <FilterChips

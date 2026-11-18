@@ -38,7 +38,7 @@ export default async function HelpPage({ searchParams }: PageProps<"/comunidade/
         title="Ajuda comunitária"
         description="Um espaço de entreajuda: transporte, produtos, serviços, emprego e apoio a quem precisa."
       />
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px]">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_380px]">
         <div>
           <div className="mb-4 flex flex-wrap items-center gap-3">
             <FilterChips
@@ -51,7 +51,7 @@ export default async function HelpPage({ searchParams }: PageProps<"/comunidade/
           </div>
           <Link
             href={`/comunidade/ajuda?${new URLSearchParams({ ...(type ? { tipo: type } : {}), ...(showAll ? {} : { estado: "todos" }) })}`}
-            className="mb-4 inline-block text-sm font-medium text-turquoise hover:underline"
+            className="mb-4 inline-flex min-h-11 items-center text-sm font-medium text-turquoise hover:underline"
           >
             {showAll ? "Mostrar apenas pedidos abertos" : "Mostrar também resolvidos e fechados"}
           </Link>

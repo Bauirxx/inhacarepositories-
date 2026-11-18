@@ -23,3 +23,13 @@ export const CATEGORY_COLORS: Record<string, string> = {
 export function categoryColor(slug: string | null | undefined): string {
   return (slug && CATEGORY_COLORS[slug]) || "#20A6A0";
 }
+
+/** Worker servido a partir de public/ (copiado por scripts/copy-maplibre-worker.mjs). */
+export const MAPLIBRE_WORKER_URL = "/maplibre/maplibre-gl-worker.mjs";
+
+/** Carrega o MapLibre dinamicamente e configura o URL do worker. */
+export async function loadMaplibre() {
+  const maplibre = await import("maplibre-gl");
+  maplibre.setWorkerUrl(MAPLIBRE_WORKER_URL);
+  return maplibre;
+}
